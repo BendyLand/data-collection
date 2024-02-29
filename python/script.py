@@ -19,4 +19,4 @@ for span in spans:
         if span.text[0] != "/":
             temps.append(int(span.text[:-1]))
 
-print("Average temp for the next two weeks:", str(sum(temps) / len(temps)))
+print("Average low temp for the next two weeks:", str(sum(temps) / len(temps)))
