@@ -15,9 +15,10 @@ class WebScraper:
         self.urls = [url_1]
 
     def scrape(self, url):
-        match url:
-            case url_1:
-                Website1Scraper().scrape(url)
+        if url == self.urls[0]:
+            Website1Scraper().scrape(url)
+        else:
+            print("Invalid URL")
 
 
 class Website1Scraper:
@@ -44,5 +45,5 @@ class Website1Scraper:
 
 
 scraper = WebScraper()
-url = scraper.urls[0]
-scraper.scrape(url=url)
+url1 = scraper.urls[0]
+scraper.scrape(url1)
