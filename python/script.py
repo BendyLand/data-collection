@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 """
@@ -34,9 +35,10 @@ class Website2Scraper:
         soup = WebScraper().parse_website(url)
         # gets the table of values
         forecast = soup.find(attrs={"id": "elbat"})
-        # prints it sub-table at a time
-        for line in forecast:
-            print(line)
+        tables = list(map(str, forecast.find_all("table")))
+        
+        
+        
 
 
 class Website1Scraper(WebScraper):
