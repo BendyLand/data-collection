@@ -30,10 +30,10 @@ class WebScraper:
             print("Invalid URL")
 
 
-class Website2Scraper:
+class Website2Scraper(WebScraper):
     def scrape(self, url):
         try:
-            soup = WebScraper().parse_website(url)
+            soup = super().parse_website(url)
             # gets the table of values
             forecast = soup.find(attrs={"id": "elbat"})
             # splits it into sub-tables for individual days
@@ -55,7 +55,7 @@ class Website2Scraper:
 
 class Website1Scraper(WebScraper):
     def scrape(self, url):
-        soup = WebScraper().parse_website(url)
+        soup = super().parse_website(url)
         try:
             parent = soup.find(
                 attrs={
