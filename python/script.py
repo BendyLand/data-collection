@@ -23,22 +23,34 @@ class WebScraper:
 
     def scrape(self, url):
         if url == self.urls[0]:
-            Website1Scraper().scrape(url)
+            return Website1Scraper().scrape(url)
         elif url == self.urls[1]:
-            Website2Scraper().scrape(url)
+            return Website2Scraper().scrape(url)
         else:
             print("Invalid URL")
 
 
 class Website2Scraper:
     def scrape(self, url):
-        soup = WebScraper().parse_website(url)
-        # gets the table of values
-        forecast = soup.find(attrs={"id": "elbat"})
-        tables = list(map(str, forecast.find_all("table")))
-        
-        
-        
+        try:
+            soup = WebScraper().parse_website(url)
+            # gets the table of values
+            forecast = soup.find(attrs={"id": "elbat"})
+            # splits it into sub-tables for individual days
+            tables = list(map(str, forecast.find_all("table")))
+            temps = []
+            for table in tables:
+                content_lines = sorted(table.split("\n"), key=len)[-2]
+                # the pattern that the temperatures are stored in looks like:
+                # Lo: <span class="lan C">-3°C</span><span class="lan F">26°F
+                result = re.search("Lo:.*?(\d+°F)", content_lines)
+                # result[1] retrieves the captured value from the regex.
+                # (values are captured in parenthesis, retrieved in order i.e. '1')
+                temps.append(result[1][:-2])  # [:-2] removes ˚F
+            # [1:] removes the current day's element, which Website1 doesn't include
+            return list(map(int, temps))[1:]
+        except:
+            print("Unable to extract data from Website 2.")
 
 
 class Website1Scraper(WebScraper):
@@ -55,16 +67,23 @@ class Website1Scraper(WebScraper):
             for span in spans:
                 if "lowTempValue" in str(span):
                     if span.text[0] != "/":
-                        temps.append(int(span.text[:-1]))
-
-            return temps
+                        temps.append(span.text[:-1])
+            return list(map(int, temps))[
+                :-2
+            ]  # removes extra days that aren't included from other websites
         except:
-            print("Unable to extract temperatures")
+            print("Unable to extract data from Website 1.")
 
 
 scraper = WebScraper()
-url1 = scraper.urls[0]
-temps1 = scraper.scrape(url1)
 
+url1 = scraper.urls[0]
 url2 = scraper.urls[1]
-scraper.scrape(url2)
+
+temps1 = scraper.scrape(url1)
+temps2 = scraper.scrape(url2)
+
+average1 = round(sum(temps1) / len(temps1), 2)
+average2 = round(sum(temps2) / len(temps2), 2)
+print(f"Average temperature from website 1: {average1}˚F")
+print(f"Average temperature from website 2: {average2}˚F")
