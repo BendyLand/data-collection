@@ -23,5 +23,7 @@ class WebScraper:
             return self.scraper1.scrape(url)
         elif url == self.urls[1]:
             return self.scraper2.scrape(url)
+        elif url == self.urls[2]:
+            return self.scraper3.scrape(url)
         else:
             print("Invalid URL")
