@@ -1,4 +1,8 @@
-# Scala Data Analyzer
+# Scala Education Data Analyzer
 
-The purpose of this project is to help me practice coding more intermediate level projects in a variety of languages. I chose Scala for my second project involving data, as it is my language of choice and should still be relatively forgiving as I learn.
+The purpose of this project is to help me practice programming a more intermediate level project. 
+
+## Objective
+
+The objective of this project is to gather and analyze US educational data across several years. 
 
