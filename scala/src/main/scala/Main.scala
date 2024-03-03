@@ -1,5 +1,8 @@
-@main def hello(): Unit =
-  println("Hello world!")
-  println(msg)
+/* 
+Idea:
+Build a web scraper that uses an api to gather some form of data,
+then scrape various sources to find articles which discuss the claims
+*/
 
-def msg = "I was compiled by Scala 3. :)"
+@main def run() = 
+    println("Hi")

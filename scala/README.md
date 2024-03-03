@@ -1,8 +1,4 @@
-## sbt project compiled with Scala 3
+# Scala Web Scraper
 
-### Usage
+The purpose of this project is to help me practice coding more intermediate level projects in a variety of languages. I chose Scala for my second implementation of a web scraper because it is my language of choice and should still be relatively forgiving as I learn.
 
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
-
-For more information on the sbt-dotty plugin, see the
-[scala3-example-project](https://github.com/scala/scala3-example-project/blob/main/README.md).
