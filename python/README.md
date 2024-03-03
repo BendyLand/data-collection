@@ -1,6 +1,6 @@
 # Python Web Scraper
 
-The purpose of this project was to help me learn the basics of web scraping and practice in a relatively forgiving language.
+The purpose of this project was to help me learn the basics of data collection and practice in a relatively forgiving language.
 
 ## The Project
 
@@ -27,4 +27,4 @@ At the start of this project, I was unaware of the protections in place for web 
 
 I did not realize this would be so common, so my original plan was to use several websites to gather my data; however, I ended up only finding two that allow their data to be used.
 
-I would have used websites which have a dedicated API for interacting with their content, but as this is a web scraping project, I wanted to focus on parsing the HTML myself. That said, since I was only able to find two working websites, I may come back and add API functionality at some point.
+I would have used websites which have a dedicated API for interacting with their content, but as this is a data collection project, I wanted to focus on parsing the HTML myself. That said, since I was only able to find two working websites, I may come back and add API functionality at some point.
