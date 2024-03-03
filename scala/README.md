@@ -1,6 +1,6 @@
 # Scala Education Data Analyzer
 
-The purpose of this project is to help me practice programming a more intermediate level project. 
+The purpose of this project is to practice implementing a data collection and analysis style project in Scala. 
 
 ## Objective
 
